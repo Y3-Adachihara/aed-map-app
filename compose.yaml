@@ -22,19 +22,19 @@ services:
         networks:
             - sail
         depends_on:
-            - mysql
+            - pgsql
             - redis
             - meilisearch
             - mailpit
             - selenium
     pgsql:
-        image: 'postgis/postgis:15-3.3'
+        image: 'postgis/postgis:15-3.3-alpine'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
         environment:
+            POSTGRES_DB: '${DB_DATABASE}'
             POSTGRES_USER: '${DB_USERNAME}'
             POSTGRES_PASSWORD: '${DB_PASSWORD}'
-            POSTGRES_DB: '${DB_DATABASE}'
         volumes:
             - 'sail-pgsql:/var/lib/postgresql/data'
             - './vendor/laravel/sail/database/pgsql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
@@ -43,9 +43,11 @@ services:
         healthcheck:
             test:
                 - CMD
-                - mysqladmin
-                - ping
-                - '-p${DB_PASSWORD}'
+                - pg_isready
+                - '-U'
+                - '${DB_USERNAME}'
+                - '-d'
+                - '${DB_DATABASE}'
             retries: 3
             timeout: 5s
     redis:
@@ -101,7 +103,7 @@ networks:
     sail:
         driver: bridge
 volumes:
-    sail-mysql:
+    sail-pgsql:
         driver: local
     sail-redis:
         driver: local
