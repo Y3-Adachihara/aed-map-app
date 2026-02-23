@@ -8,7 +8,7 @@ function DisplayMap() {
 
     return (
         <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-            <Map mapId = 'DEMO_MAP_ID' style={{width: '100vw', height: '100vh'}} center={position} zoom={10}>
+            <Map mapId = 'DEMO_MAP_ID' style={{width: '100vw', height: '100vh'}} center={position} zoom={15}>
                 <AdvancedMarker position={position}></AdvancedMarker>
             </Map>
         </APIProvider>
