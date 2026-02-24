@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/map', function() {
-    return Inertia::render('Map');
+    return Inertia::render('AedMapPage');
 });
 
 require __DIR__.'/auth.php';

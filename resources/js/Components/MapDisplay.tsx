@@ -1,7 +1,6 @@
-import { APIProvider, AdvancedMarker, Map} from "@vis.gl/react-google-maps";
-// import { usePage } from "@inertiajs/react";
+// 地図部分の表示だけ
 
-// const {appName, customValue} = usePage().props;
+import { APIProvider, AdvancedMarker, Map} from "@vis.gl/react-google-maps";
 
 export default function DisplayMap() {
     const location = [{id: 1, position: {lat: 34.836439, lng: 138.176044}}, {id: 2, position: {lat: 34.847132, lng: 138.183893}}];
