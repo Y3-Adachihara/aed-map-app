@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('aed_locations', function (Blueprint $table) {
             $table->id();
+            
+            $table->string('facility_name');    // 施設名
+            $table->string('city_name')->nullable();    // 市町村名
+            $table->string('address')->nullable(); // 住所
+
+            $table->decimal('latitude', 10, 7); // 緯度
+            $table->decimal('longitude', 10, 7); // 経度
+
             $table->timestamps();
         });
     }
