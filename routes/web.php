@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\AedLocation;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -25,7 +26,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/map', function() {
-    return Inertia::render('AedMapPage');
+    $aeds = AedLocation::all();
+    
+    return Inertia::render('AedMapPage', [
+        'aedLocations' => $aeds
+    ]);
 });
 
 require __DIR__.'/auth.php';
