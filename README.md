@@ -49,6 +49,15 @@
 
 　GoogleMapsのライブラリとして、**@vis.gl/react-google-maps** を使用しています。
 
+## 🔴 進捗
+
+- AED位置情報CSVのデータをシーダーで挿入し、地図上にピンで表示しました。
+- AEDマップを表示するページのビューと、マップを表示するコンポーネントを分離しました。
+
+<img width="1919" height="1025" alt="スクリーンショット 2026-03-28 183329" src="https://github.com/user-attachments/assets/0de219d0-269f-4e95-91b5-ca2a76a56f8e" />
+
+LaravelやReactといったフレームワークやTypeScriptなどを一度に学習することに壁を感じたため、一度Laravel単体で[Todoリストアプリ](https://github.com/Y3-Adachihara/laravel-todolist-docker)を作りながら、アプリ制作に必要な要素を一つずつ学んでいます。
+
 ## ✨ こだわり・学習のポイント
 
 - **地理空間情報の高度な扱い**
